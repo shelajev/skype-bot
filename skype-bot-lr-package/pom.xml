@@ -9,7 +9,23 @@
   <packaging>pom</packaging>
   <description>LiveRebel package for deploying skype-bot</description>
   
-  
+  <dependencies>
+		<dependency>
+			<groupId>org.zeroturnaround.skype-bot</groupId>
+			<artifactId>skype-bot-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zeroturnaround.skype-bot</groupId>
+			<artifactId>skype-bot-plugin-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zeroturnaround.skype-bot</groupId>
+			<artifactId>skype-bot-plugin-example</artifactId>
+			<version>${project.version}</version>
+		</dependency>				
+	</dependencies>
   <build>
     <plugins>
       <plugin>
@@ -30,6 +46,25 @@
                 </execution>
             </executions>
         </plugin>
+        <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+          <descriptors>
+            <descriptor>pack.xml</descriptor>
+          </descriptors>
+        </configuration>
+        <executions>
+          <execution>
+            <id>package-the-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 </project>

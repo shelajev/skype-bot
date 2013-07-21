@@ -9,18 +9,25 @@
 	<includeBaseDirectory>false</includeBaseDirectory>
 	<moduleSets>
 		<moduleSet>
-			<!-- Enable access to all projects in the current multimodule build! -->
-			<useAllReactorProjects>true</useAllReactorProjects>
-			<binaries>
-				<outputDirectory>lib</outputDirectory>
-				<unpack>false</unpack>
-			</binaries>
+		  <useAllReactorProjects>true</useAllReactorProjects>
+			<includes>
+        <include>*</include>
+      </includes>
+      <binaries>
+        <outputDirectory>lib</outputDirectory>
+        <unpack>false</unpack>
+      </binaries>
 		</moduleSet>
 	</moduleSets>
 	<fileSets>
 		<fileSet>
 			<directory>src/main/resources</directory>
 			<outputDirectory>/</outputDirectory>
+		</fileSet>
+		<fileSet>
+		  <!--liverebel.xml -->
+			<directory>target/classes</directory>
+			<outputDirectory>/liverebel</outputDirectory>
 		</fileSet>
 	</fileSets>
 </assembly>
